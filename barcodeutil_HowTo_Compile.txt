@@ -1,0 +1,49 @@
+
+***Prerequisites
+Install the .NET 10 SDK if you don't have it: https://dotnet.microsoft.com/download/dotnet/10.0
+
+Verify:
+
+dotnet --version
+Should print 10.x.x.
+
+*** Pull the code from github:
+
+git clone https://github.com/LaranIkal/barcodeprintingutility.git
+
+Example clonning output:
+Cloning into 'barcodeprintingutility'...
+remote: Enumerating objects: 19, done.
+remote: Counting objects: 100% (19/19), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 19 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (19/19), 62.52 KiB | 688.00 KiB/s, done.
+Resolving deltas: 100% (6/6), done.
+
+*** Enter the Project Directory
+cd barcodeprintingutility
+
+*** Build
+dotnet clean
+
+- Delete obj and bin directories:
+On Windows: Remove-Item -Recurse -Force bin,obj -ErrorAction SilentlyContinue
+On Linux: rm -rf bin obj 2>/dev/null   
+
+dotnet restore
+dotnet build -c Release
+
+
+*** Publish(Create the executable barcodeutil.exe file):
+On Windows:
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:DebugType=None -o C:\barcodeutilserver
+
+Publish, generate the exe file inside C:\barcodeutilserver, 
+if C:\barcodeutilserver doesn't exist, it is created when publising
+
+
+On Linux:
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:DebugType=None
+Check directory: bin/Release/net10.0/win-x64/publish/
+
+
