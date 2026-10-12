@@ -1,5 +1,7 @@
 # barcodeprintingutility
 Watch for barcode files in a directory and send them to the barcode printer
+Please read this guide before using barcodeutil:
+https://github.com/LaranIkal/barcodeprintingutility/blob/main/barcodeutil_operation_and_capacity_guideV3.pdf
 
 
 
